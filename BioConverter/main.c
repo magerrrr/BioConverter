@@ -99,7 +99,7 @@ double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo,
 };
 
 int main(int argc, char *argv[]) {
-   printf("Значение result: %.3f\n", convert(2,5,0,198.842));
+   printf("Значение result: %.3f\n", convert(2,5,0,160));
     return 0;
 };
 
@@ -115,4 +115,5 @@ int main(int argc, char *argv[]) {
  //Cholesterol, low-density (LDL) (high level)
  (2,0,5,5.15) = 198.842
  (2,5,0,198.842) = 5.150
+ (2,5,0,160) = 4.144
  */
