@@ -5,6 +5,18 @@
 //  Created by Kirill on 8/16/19.
 //  Copyright © 2019 Kirill. All rights reserved.
 //
+//  How to run conversion function:
+//  call convert() with 4 arguments in main function, where:
+//  1 arg (biomarker): number from 0 to 10 (see Array of biomarkers)
+//  2 arg (unit from): number from 0 to 14 (see Array of units)
+//  3 arg (unit to)  : number from 0 to 14 (see Array of units)
+//  4 arg (value)    : value to convert
+//
+//  function return value looks like x.xxx (1.123), for examle:
+//  Insulin: (0,3,13,14) = 2.016 or (0,13,3,2.016) = 13.890
+//  Glucose: (1,0,5,5) = 90.078 or (1,0,5,90.078) = 4.996
+//  Cholesterol, low-density (LDL): (2,0,5,5.15) = 198.842 or (2,5,0,160) = 4.144
+//
 #include <stdio.h>
 
 int biomarker[11] = {
@@ -22,21 +34,21 @@ int biomarker[11] = {
 };
 
 double insulin_units[15] = { // index access 0
-    0,         // mmol/l
-    0,         // µmol/L
-    0,         // nmol/L
-    6.945,     // pmol/L // 14 - 140
-    0.0347,    // mg/mL
-    0.347,     // mg/dL
-    3.47,      // mg/L
-    0,         //µg/mL
-    0,         //µg/dL
-    0,         //µg/L
-    0,         //ng/mL
-    0.0000347, // g
-    1,         // IU
-    1,         // µIU/mL // 2.0 - 20
-    1          // mIU/L
+    0,         // mmol/l // 0
+    0,         // µmol/L // 1
+    0,         // nmol/L // 2
+    6.945,     // pmol/L // 3 // 14 - 140
+    0.0347,    // mg/mL  // 4
+    0.347,     // mg/dL  // 5
+    3.47,      // mg/L   // 6
+    0,         //µg/mL   // 7
+    0,         //µg/dL   // 8
+    0,         //µg/L    // 9
+    0,         //ng/mL   // 10
+    0.0000347, // g      // 11
+    1,         // IU     // 12
+    1,         // µIU/mL // 13 // 2.0 - 20
+    1          // mIU/L  // 14
 };
 
 double glucose_units[15] = { // index access 1
@@ -286,18 +298,3 @@ int main(int argc, char *argv[]) {
    printf("Значение result: %.3f\n", convert(2,5,0,160));
     return 0;
 };
-
-/*
-//Insulin
-(0,3,13,14) = 2.016
-(0,13,3,2.016) = 13.890
- 
-//Glucose
-(1,0,5,5) = 90.078
-(1,0,5,90.078) = 4.996
- 
- //Cholesterol, low-density (LDL) (high level)
- (2,0,5,5.15) = 198.842
- (2,5,0,198.842) = 5.150
- (2,5,0,160) = 4.144
- */
