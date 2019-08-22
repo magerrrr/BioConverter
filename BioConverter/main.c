@@ -19,7 +19,7 @@
 //
 #include <stdio.h>
 
-int biomarker[11] = {
+int biomarkers[11] = {
     0, // Insulin
     1, // Glucose
     2, // Cholesterol, low-density (LDL) (high level)
@@ -159,7 +159,7 @@ double homocysteine_units[15] = { // index access 6
     0           // mIU/L  // 14
 };
 
-double thyrotropin[15] = { // index access 7
+double thyrotropin_units[15] = { // index access 7
     0,          // mmol/l // 0
     0,          // µmol/L // 1
     0,          // nmol/L // 2
@@ -177,7 +177,7 @@ double thyrotropin[15] = { // index access 7
     1           // mIU/L  // 14 // Men: 0.5-6 mIU/L, Women: 4-5 mIU/L
 };
 
-double vitaminD[15] = { // index access 8
+double vitaminD_units[15] = { // index access 8
     0,          // mmol/l // 0
     0,          // µmol/L // 1
     0,          // nmol/L // 2
@@ -195,7 +195,7 @@ double vitaminD[15] = { // index access 8
     0           // mIU/L  // 14
 };
 
-double zinc[15] = { // index access 9
+double zinc_units[15] = { // index access 9
     1,          // mmol/l // 0 // 10 - 23
     1000,       // µmol/L // 1
     1000000,    // nmol/L // 2
@@ -213,7 +213,7 @@ double zinc[15] = { // index access 9
     0           // mIU/L  // 14
 };
 
-double ferritin[15] = { // index access 10
+double ferritin_units[15] = { // index access 10
     1,          // mmol/l // 0
     1000,       // µmol/L // 1
     1000000,    // nmol/L // 2
@@ -232,7 +232,7 @@ double ferritin[15] = { // index access 10
 };
 
 double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo, double value) {
-    switch(biomarker[indexOfBiomarker]) {
+    switch(biomarkers[indexOfBiomarker]) {
         case 0 :
             printf("Insulin!\n" );
             return value * insulin_units[convertTo] / insulin_units[convertFrom];;
@@ -270,22 +270,22 @@ double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo,
             
         case 7 :
             printf("Thyrotropin (TSH)!\n" );
-            return value * thyrotropin[convertTo] / thyrotropin[convertFrom];;
+            return value * thyrotropin_units[convertTo] / thyrotropin_units[convertFrom];;
             break;
             
         case 8 :
             printf("Vitamin D!\n" );
-            return value * vitaminD[convertTo] / vitaminD[convertFrom];;
+            return value * vitaminD_units[convertTo] / vitaminD_units[convertFrom];;
             break;
             
         case 9 :
             printf("Zinc!\n" );
-            return value * zinc[convertTo] / zinc[convertFrom];;
+            return value * zinc_units[convertTo] / zinc_units[convertFrom];;
             break;
             
         case 10 :
             printf("Ferritin!\n" );
-            return value * ferritin[convertTo] / ferritin[convertFrom];;
+            return value * ferritin_units[convertTo] / ferritin_units[convertFrom];;
             break;
             
         default:
