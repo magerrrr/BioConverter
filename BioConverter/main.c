@@ -165,6 +165,24 @@ double thyrotropin[15] = { // index access 7
     1           // mIU/L  // 14
 };
 
+double vitaminD[15] = { // index access 8
+    0,          // mmol/l // 0
+    0,          // µmol/L // 1
+    0,          // nmol/L // 2
+    0,          // pmol/L // 3
+    0.0000249,  // mg/mL  // 4
+    0,          // mg/dL  // 5
+    0,          // mg/L   // 6
+    0,          // µg/mL  // 7
+    0,          // µg/dL  // 8
+    0,          // µg/L   // 9
+    0,          // ng/mL  // 10
+    0.0000000249,// g     // 11
+    1,          // IU     // 12
+    0,          // µIU/mL // 13
+    0           // mIU/L  // 14
+};
+
 double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo, double value) {
     switch(biomarker[indexOfBiomarker]) {
         case 0 :
@@ -205,6 +223,11 @@ double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo,
         case 7 :
             printf("Thyrotropin!\n" );
             return value * thyrotropin[convertTo] / thyrotropin[convertFrom];;
+            break;
+            
+        case 8 :
+            printf("Vitamin D!\n" );
+            return value * vitaminD[convertTo] / vitaminD[convertFrom];;
             break;
             
         default:
