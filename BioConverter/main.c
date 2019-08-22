@@ -257,7 +257,7 @@ double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo,
             break;
             
         case 7 :
-            printf("Thyrotropin!\n" );
+            printf("Thyrotropin (TSH)!\n" );
             return value * thyrotropin[convertTo] / thyrotropin[convertFrom];;
             break;
             
