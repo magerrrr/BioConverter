@@ -157,7 +157,7 @@ double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo,
             break;
             
         case 5 :
-            printf("Triglycerides!\n" );
+            printf("C-reactive protein!\n" );
             return value * crp_units[convertTo] / crp_units[convertFrom];;
             break;
             
