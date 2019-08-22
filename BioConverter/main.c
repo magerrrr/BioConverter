@@ -183,6 +183,24 @@ double vitaminD[15] = { // index access 8
     0           // mIU/L  // 14
 };
 
+double zinc[15] = { // index access 9
+    1,          // mmol/l // 0
+    1000,       // µmol/L // 1
+    1000000,    // nmol/L // 2
+    1000000000, // pmol/L // 3
+    0.06538,    // mg/mL  // 4
+    6.538,      // mg/dL  // 5
+    65.38,      // mg/L   // 6
+    65.38,      // µg/mL  // 7
+    6538,       // µg/dL  // 8
+    65380,      // µg/L   // 9
+    65380,      // ng/mL  // 10
+    0,           // g     // 11
+    0,          // IU     // 12
+    0,          // µIU/mL // 13
+    0           // mIU/L  // 14
+};
+
 double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo, double value) {
     switch(biomarker[indexOfBiomarker]) {
         case 0 :
@@ -228,6 +246,11 @@ double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo,
         case 8 :
             printf("Vitamin D!\n" );
             return value * vitaminD[convertTo] / vitaminD[convertFrom];;
+            break;
+            
+        case 9 :
+            printf("Zinc!\n" );
+            return value * zinc[convertTo] / zinc[convertFrom];;
             break;
             
         default:
