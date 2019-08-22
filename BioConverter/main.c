@@ -93,6 +93,24 @@ double hdl_units[15] = { // index access 3
     0           // mIU/L  // 14
 };
 
+double triglycerides_units[15] = { // index access 4
+    0.0113,     // mmol/l // 0
+    11.2994,    // µmol/L // 1
+    0,          // nmol/L // 2
+    0,          // pmol/L // 3
+    0.1,        // mg/mL  // 4
+    1,          // mg/dL  // 5
+    10,         // mg/L   // 6
+    0,          // µg/mL  // 7
+    0,          // µg/dL  // 8
+    0,          // µg/L   // 9
+    0,          // ng/mL  // 10
+    0,          // g      // 11
+    0,          // IU     // 12
+    0,          // µIU/mL // 13
+    0           // mIU/L  // 14
+};
+
 double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo, double value) {
     switch(biomarker[indexOfBiomarker]) {
         case 0 :
@@ -114,7 +132,11 @@ double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo,
             printf("Cholesterol, high-density (HDL) (low level)!\n" );
             return value * hdl_units[convertTo] / hdl_units[convertFrom];;
             break;
-            
+        
+        case 4 :
+            printf("Triglycerides!\n" );
+            return value * triglycerides_units[convertTo] / triglycerides_units[convertFrom];;
+            break;
         default:
             printf("Incorrect biomarker!\n" );
     }
