@@ -25,7 +25,7 @@ double insulin_units[15] = { // index access 0
     0,         // mmol/l
     0,         // µmol/L
     0,         // nmol/L
-    6.945,     // pmol/L
+    6.945,     // pmol/L // 14 - 140
     0.0347,    // mg/mL
     0.347,     // mg/dL
     3.47,      // mg/L
@@ -35,12 +35,12 @@ double insulin_units[15] = { // index access 0
     0,         //ng/mL
     0.0000347, // g
     1,         // IU
-    1,         // µIU/mL
+    1,         // µIU/mL // 2.0 - 20
     1          // mIU/L
 };
 
 double glucose_units[15] = { // index access 1
-    1,          // mmol/l // 0
+    1,          // mmol/l // 0 // 3.2 - 5.5
     1000,       // µmol/L // 1
     1000000,    // nmol/L // 2
     1000000000, // pmol/L // 3
@@ -58,11 +58,11 @@ double glucose_units[15] = { // index access 1
 };
 
 double ldl_units[15] = { // index access 2
-    0.0259,     // mmol/l // 0
+    0.0259,     // mmol/l // 0 // >4.144
     0,          // µmol/L // 1
     0,          // nmol/L // 2
     0,          // pmol/L // 3
-    0.1,        // mg/mL  // 4
+    0.1,        // mg/mL  // 4 // > 160
     1,          // mg/dL  // 5
     10,         // mg/L   // 6
     0,          // µg/mL  // 7
@@ -76,12 +76,12 @@ double ldl_units[15] = { // index access 2
 };
 
 double hdl_units[15] = { // index access 3
-    0.0259,     // mmol/l // 0
+    0.0259,     // mmol/l // 0 // > 1.03
     0,          // µmol/L // 1
     0,          // nmol/L // 2
     0,          // pmol/L // 3
     0.1,        // mg/mL  // 4
-    1,          // mg/dL  // 5
+    1,          // mg/dL  // 5 // < 40
     10,         // mg/L   // 6
     0,          // µg/mL  // 7
     0,          // µg/dL  // 8
@@ -94,12 +94,12 @@ double hdl_units[15] = { // index access 3
 };
 
 double triglycerides_units[15] = { // index access 4
-    0.0113,     // mmol/l // 0
+    0.0113,     // mmol/l // 0 // 0.14 - 1.82
     11.2994,    // µmol/L // 1
     0,          // nmol/L // 2
     0,          // pmol/L // 3
     0.1,        // mg/mL  // 4
-    1,          // mg/dL  // 5
+    1,          // mg/dL  // 5 // < 160
     10,         // mg/L   // 6
     0,          // µg/mL  // 7
     0,          // µg/dL  // 8
@@ -118,7 +118,7 @@ double crp_units[15] = { // index access 5
     0,          // pmol/L // 3
     0,          // mg/mL  // 4
     0,          // mg/dL  // 5
-    1,          // mg/L   // 6
+    1,          // mg/L   // 6 // < 5
     0,          // µg/mL  // 7
     0,          // µg/dL  // 8
     0,          // µg/L   // 9
@@ -131,12 +131,12 @@ double crp_units[15] = { // index access 5
 
 double homocysteine_units[15] = { // index access 6
     0,          // mmol/l // 0
-    7.397,      // µmol/L // 1
+    7.397,      // µmol/L // 1 // 5 - 15
     0,          // nmol/L // 2
     0,          // pmol/L // 3
     0,          // mg/mL  // 4
     0,          // mg/dL  // 5
-    1,          // mg/L   // 6
+    1,          // mg/L   // 6 // 0.68 - 2.02
     0,          // µg/mL  // 7
     0,          // µg/dL  // 8
     0,          // µg/L   // 9
@@ -162,7 +162,7 @@ double thyrotropin[15] = { // index access 7
     0,          // g      // 11
     0,          // IU     // 12
     1,          // µIU/mL // 13
-    1           // mIU/L  // 14
+    1           // mIU/L  // 14 // Men: 0.5-6 mIU/L, Women: 4-5 mIU/L
 };
 
 double vitaminD[15] = { // index access 8
@@ -176,7 +176,7 @@ double vitaminD[15] = { // index access 8
     0,          // µg/mL  // 7
     0,          // µg/dL  // 8
     0,          // µg/L   // 9
-    0,          // ng/mL  // 10
+    0,          // ng/mL  // 10 // 30 - 60
     0.0000000249,// g     // 11
     1,          // IU     // 12
     0,          // µIU/mL // 13
@@ -184,7 +184,7 @@ double vitaminD[15] = { // index access 8
 };
 
 double zinc[15] = { // index access 9
-    1,          // mmol/l // 0
+    1,          // mmol/l // 0 // 10 - 23
     1000,       // µmol/L // 1
     1000000,    // nmol/L // 2
     1000000000, // pmol/L // 3
@@ -211,7 +211,7 @@ double ferritin[15] = { // index access 10
     445038,     // mg/L   // 6
     445038,     // µg/mL  // 7
     44503783,   // µg/dL  // 8
-    445037828,  // µg/L   // 9
+    445037828,  // µg/L   // 9 // Women:13 - 150, Men 30 - 400
     445037828,  // ng/mL  // 10
     0,          // g      // 11
     0,          // IU     // 12
