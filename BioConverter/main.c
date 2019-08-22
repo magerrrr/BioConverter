@@ -201,6 +201,24 @@ double zinc[15] = { // index access 9
     0           // mIU/L  // 14
 };
 
+double ferritin[15] = { // index access 10
+    1,          // mmol/l // 0
+    1000,       // µmol/L // 1
+    1000000,    // nmol/L // 2
+    1000000000, // pmol/L // 3
+    445,        // mg/mL  // 4
+    44504,      // mg/dL  // 5
+    445038,     // mg/L   // 6
+    445038,     // µg/mL  // 7
+    44503783,   // µg/dL  // 8
+    445037828,  // µg/L   // 9
+    445037828,  // ng/mL  // 10
+    0,          // g      // 11
+    0,          // IU     // 12
+    0,          // µIU/mL // 13
+    0           // mIU/L  // 14
+};
+
 double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo, double value) {
     switch(biomarker[indexOfBiomarker]) {
         case 0 :
@@ -251,6 +269,11 @@ double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo,
         case 9 :
             printf("Zinc!\n" );
             return value * zinc[convertTo] / zinc[convertFrom];;
+            break;
+            
+        case 10 :
+            printf("Ferritin!\n" );
+            return value * ferritin[convertTo] / ferritin[convertFrom];;
             break;
             
         default:
