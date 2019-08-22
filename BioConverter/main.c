@@ -111,6 +111,24 @@ double triglycerides_units[15] = { // index access 4
     0           // mIU/L  // 14
 };
 
+double crp_units[15] = { // index access 5
+    0,          // mmol/l // 0
+    0,          // µmol/L // 1
+    9.524,      // nmol/L // 2
+    0,          // pmol/L // 3
+    0,          // mg/mL  // 4
+    0,          // mg/dL  // 5
+    1,          // mg/L   // 6
+    0,          // µg/mL  // 7
+    0,          // µg/dL  // 8
+    0,          // µg/L   // 9
+    0,          // ng/mL  // 10
+    0,          // g      // 11
+    0,          // IU     // 12
+    0,          // µIU/mL // 13
+    0           // mIU/L  // 14
+};
+
 double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo, double value) {
     switch(biomarker[indexOfBiomarker]) {
         case 0 :
@@ -137,6 +155,12 @@ double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo,
             printf("Triglycerides!\n" );
             return value * triglycerides_units[convertTo] / triglycerides_units[convertFrom];;
             break;
+            
+        case 5 :
+            printf("Triglycerides!\n" );
+            return value * crp_units[convertTo] / crp_units[convertFrom];;
+            break;
+            
         default:
             printf("Incorrect biomarker!\n" );
     }
