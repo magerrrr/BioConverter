@@ -19,18 +19,18 @@
 //
 #include <stdio.h>
 
-int biomarkers[11] = {
-    0, // Insulin
-    1, // Glucose
-    2, // Cholesterol, low-density (LDL) (high level)
-    3, // Cholesterol, high-density (HDL) (low level)
-    4, // Triglycerides (TG)
-    5, // CRP (C-reactive protein)
-    6, // Homocysteine
-    7, // Thyrotropin
-    8, // Vitamin D
-    9, // Zinc
-    10 // Ferritin
+enum Biomarker{
+    INSULIN,
+    GLUCOSE,
+    LDL,
+    HDL,
+    TG,
+    CRP,
+    HOMOCYSTEINE,
+    THYROTROPIN,
+    VITAMIN_D,
+    ZINC,
+    FERRITIN
 };
 
 double insulin_units[15] = { // index access 0
@@ -231,8 +231,8 @@ double ferritin_units[15] = { // index access 10
     0           // mIU/L  // 14
 };
 
-double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo, double value) {
-    switch(biomarkers[indexOfBiomarker]) {
+double convert(enum Biomarker biomarker, int16_t convertFrom, int16_t convertTo, double value) {
+    switch(biomarker) {
         case 0 :
             printf("Insulin!\n" );
             return value * insulin_units[convertTo] / insulin_units[convertFrom];;
@@ -295,6 +295,6 @@ double convert(int16_t indexOfBiomarker, int16_t convertFrom, int16_t convertTo,
 };
 
 int main(int argc, char *argv[]) {
-   printf("Значение result: %.3f\n", convert(2,5,0,160));
+   printf("Значение result: %.3f\n", convert(GLUCOSE,5,0,160));
     return 0;
 };
